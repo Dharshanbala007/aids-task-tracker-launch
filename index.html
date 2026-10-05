@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>AI&amp;DS Task Tracker | Launch</title>
+  <meta name="description" content="AI&DS Task Tracker for the Department of Artificial Intelligence & Data Science, NSCET Theni. Watch the launch film and open the app." />
+  <meta name="theme-color" content="#08080F" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234F46E5'/><path d='M18 44 50 30 82 44 50 58Z' fill='white'/><path d='M32 51v15l18 8 18-8V51L50 58Z' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Faint full-page sparkles -->
+  <canvas id="sparkles-page" class="sparkles-page" aria-hidden="true"></canvas>
+
+  <main class="stage" data-state="intro">
+
+    <!-- INTRO: title + sparkle band + play button -->
+    <section class="intro" aria-labelledby="title">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><rect width="100" height="100" rx="24"/><path d="M18 44 50 30 82 44 50 58Z"/><path d="M32 51v15l18 8 18-8V51L50 58Z"/><path d="M78 46v20" class="tassel"/></svg>
+      </div>
+
+      <h1 id="title" class="title">AI&amp;DS Task Tracker</h1>
+
+      <div class="sparkle-band" aria-hidden="true">
+        <div class="beam beam-wide-blur"></div>
+        <div class="beam beam-wide"></div>
+        <div class="beam beam-core-blur"></div>
+        <div class="beam beam-core"></div>
+        <canvas id="sparkles-band" class="band-canvas"></canvas>
+        <div class="band-mask"></div>
+      </div>
+
+      <p class="tagline">Assigned. Alerted. Accountable.</p>
+      <p class="dept">Department of Artificial Intelligence &amp; Data Science, NSCET Theni</p>
+
+      <button id="playBtn" class="play-btn" type="button" aria-label="Play the launch film (60 seconds, with sound)">
+        <span class="play-ring" aria-hidden="true"></span>
+        <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+      </button>
+      <p class="play-hint">Watch the launch film <span class="muted">60 sec, sound on</span></p>
+    </section>
+
+    <!-- FILM -->
+    <section class="film" aria-label="Launch film">
+      <div class="film-frame">
+        <video id="promo" preload="metadata" playsinline poster="assets/poster.jpg">
+          <source src="assets/promo.mp4" type="video/mp4" />
+          Your browser can't play this video.
+        </video>
+
+        <div class="film-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+        <!-- Shown after the film ends -->
+        <div class="launch-panel" id="launchPanel" aria-hidden="true">
+          <p class="launch-title">Your department, in one app.</p>
+          <a id="launchBtn" class="launch-btn" href="https://ai-ds-task-tracker.vercel.app/coordinator" tabindex="-1">
+            Launch app
+          </a>
+          <button id="replayBtn" class="replay-btn" type="button" tabindex="-1">Watch again</button>
+        </div>
+      </div>
+
+      <div class="film-controls">
+        <button id="muteBtn" class="ghost-btn" type="button" aria-pressed="false">Mute</button>
+        <button id="skipBtn" class="ghost-btn" type="button">Skip film</button>
+      </div>
+    </section>
+
+    <p class="sr-only" id="liveRegion" aria-live="polite"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
